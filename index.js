@@ -13,9 +13,9 @@ class App extends Component {
   }
 
   render() {
-      console.log(`App Component Rendered`);
+    console.log(`App Component Rendered`);
     return (
-      <Container className="MainContainer">
+      <Container className="MainContainer" fluid="md">
         <Page />
       </Container>
     );

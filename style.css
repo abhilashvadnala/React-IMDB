@@ -3,11 +3,12 @@ h1, p {
 }
 
 .MainContainer {
-  margin: 5px auto;
-  width: 60%;
+  margin: auto;
   border: 1px solid black;
+  padding: 10px;
 }
 
 .Description {
-  height: 50vh;
+  height: auto;
+  overflow: auto;
 }

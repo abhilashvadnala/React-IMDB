@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Image } from "react-bootstrap";
 
 class Poster extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -16,8 +17,11 @@ class Poster extends Component {
   }
 
   renderMovie = () => {
-    this.props.userFocus(this.state.id);
-    window.location.href='#desc'
+    if(!this.props.description) {
+      this.props.userFocus(this.state.id);
+      // selecting a poster will automatically take you to the top of the page to view the description section.
+      window.location.href='#'
+    }
   };
 
   render() {
@@ -25,15 +29,14 @@ class Poster extends Component {
     const posterSource =
       "https://image.tmdb.org/t/p/w200" + this.props.posterPath;
     return (
-      <Row>
-        <Image
-          id={this.state.id}
-          onClick={this.renderMovie}
-          src={posterSource}
-        />
-      </Row>
+      <Image
+        id={this.state.id}
+        onClick={this.renderMovie}
+        src={posterSource}
+      />
     );
   }
+
 }
 
 export default Poster;

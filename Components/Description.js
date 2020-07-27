@@ -8,12 +8,13 @@ class Description extends Component {
     alert(`No functionality yet.`);
   };
 
-
   render() {
-      console.log(`Description Component Rendered`);
+    console.log(`Description Component Rendered`);
+    // since some movies don't have title field, I am using original_name.
+    const movieTitle = (this.props.movie["title"] === undefined) ? this.props.movie["name"] : this.props.movie["title"]
     return (
       <Row className="Description" id="desc">
-        <Col lg={4} md={4} sm={4} xs={4}>
+        <Col lg={4} md={4} >
           {/**This Column has holds the movie poster */}
           <Poster
             id={this.props.movie["id"]}
@@ -21,15 +22,14 @@ class Description extends Component {
             description={true}
           />
         </Col>
-        <Col lg={8} md={8} sm={8} xs={8}>
+        <Col lg={8} md={8}>
           {/**This Column has holds the description of the movie */}
-          <Row style={{ height: "15%" }}>
-            <h3>{this.props.movie["title"]}</h3>
+          <Row style={{ height: "auto", margin: '10px'}}>
+            <h3>{movieTitle}</h3>
           </Row>
-          <Row style={{ height: "30%" }}>
+          <Row style={{ height: "auto", margin: '10px' }}>
             <Col>
               <Row>Release Date: {this.props.movie["release_date"]}</Row>
-              <br />
               <Row>
                 <button type="button" name="buy" onClick={this.noFunc}>
                   Buy
@@ -40,7 +40,7 @@ class Description extends Component {
               </Row>
             </Col>
           </Row>
-          <Row style={{ height: "55%", fontSize: 20 }}>
+          <Row style={{ height: "auto", fontSize: 20, margin: '10px' }}>
             <p>{this.props.movie["overview"]}</p>
           </Row>
         </Col>
