@@ -30,6 +30,7 @@ class Page extends Component {
   }
 
   fetchData() {
+    console.log('Fucknig data');
     axios
       .get(
         "https://api.themoviedb.org/3/trending/all/day?api_key=26e77891e8dfafc14834d1c0d74e42b9"
@@ -56,15 +57,17 @@ class Page extends Component {
   }
 
   render() {
+      console.log(`Page Component Rendered`);
     if (this.state.movies.length == 0) return <Waiting />;
 
     const cards = this.state.movies.map(movie => {
       return (
-        <Col sm={4} style={{ marginTop: "5px", marginBottom: "5px" }}>
+        <Col key={movie.id} sm={4} style={{ marginTop: "5px", marginBottom: "5px" }}>
           <Poster
             id={movie.id}
             posterPath={movie.poster_path}
             userFocus={this.userFocus}
+            description={false}
           />
         </Col>
       );

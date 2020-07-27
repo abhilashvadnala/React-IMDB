@@ -4,17 +4,22 @@ import { Container, Row, Col } from "react-bootstrap";
 import Poster from "./Poster";
 
 class Description extends Component {
-
   noFunc = () => {
     alert(`No functionality yet.`);
   };
 
+
   render() {
+      console.log(`Description Component Rendered`);
     return (
-      <Row className="Description">
+      <Row className="Description" id="desc">
         <Col lg={4} md={4} sm={4} xs={4}>
           {/**This Column has holds the movie poster */}
-          <Poster id={this.props.movie["id"]} posterPath={this.props.movie["poster_path"]} />
+          <Poster
+            id={this.props.movie["id"]}
+            posterPath={this.props.movie["poster_path"]}
+            description={true}
+          />
         </Col>
         <Col lg={8} md={8} sm={8} xs={8}>
           {/**This Column has holds the description of the movie */}

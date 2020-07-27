@@ -13,6 +13,7 @@ class App extends Component {
   }
 
   render() {
+      console.log(`App Component Rendered`);
     return (
       <Container className="MainContainer">
         <Page />
